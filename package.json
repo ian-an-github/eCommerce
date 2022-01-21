@@ -1,0 +1,19 @@
+{
+  "name": "ecommerce",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open",
+    "cypress:opendebug": "cross-env CYPRESS_REMOTE_DEBUGGING_PORT=9222 cypress open"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "cypress": "^8.7.0",
+    "cypress-localstorage-commands": "^1.6.1",
+    "cypress-xpath": "^1.6.2"
+  }
+}

@@ -1,0 +1,5 @@
+{
+        "mobile":["iphone-se2","iphone-6+","samsung-s10"],
+        "desktop":["macbook-11","macbook-15","macbook-13"],
+        "tablet":["ipad-2"]
+}
