@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cypress:open": "cypress open",
-    "cypress:opendebug": "cross-env CYPRESS_REMOTE_DEBUGGING_PORT=9222 cypress open"
+    "cypress:opendebug": "cross-env CYPRESS_REMOTE_DEBUGGING_PORT=9222 cypress open",
+    "percy:open": "percy exec -- cypress run PERCY_TOKEN=a23a208054ab20c23f57f26a7430b3f6fa3c3c24d2ed5708b39afbf285834266"
   },
   "author": "",
   "license": "ISC",
