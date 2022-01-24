@@ -2,6 +2,5 @@
     "baseUrl": "https://dev-zeal.vercel.app",
     "experimentalSessionSupport": true,
     "defaultCommandTimeout": 10000,
-    "pageLoadTimeout": 60000,
-    "PERCY_TOKEN":"a23a208054ab20c23f57f26a7430b3f6fa3c3c24d2ed5708b39afbf285834266"
+    "pageLoadTimeout": 60000
 }

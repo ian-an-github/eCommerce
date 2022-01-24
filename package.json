@@ -18,5 +18,30 @@
     "cypress": "^8.7.0",
     "cypress-localstorage-commands": "^1.6.1",
     "cypress-xpath": "^1.6.2"
-  }
+  },
+  "PERCY_TOKEN":"a23a208054ab20c23f57f26a7430b3f6fa3c3c24d2ed5708b39afbf285834266",
+  "percy": {
+      "version": 2,
+      "snapshot": {
+        "widths": [
+          375,
+          1280
+        ],
+        "min-height": 1024,
+        "percy-css": "iframe { display: none; }"
+      },
+      "network-idle-timeout": 150,
+      "concurrency": 20,
+      "disable-cache": false,
+      "launch-options": {
+        "executable": "/path/to/chromium/executable",
+        "headless": true,
+        "args": [],
+        "timeout": 30000
+      },
+      "upload": {
+        "files": "**/*.{png,jpg,jpeg}",
+        "ignore": ""
+      }
+    }
 }
