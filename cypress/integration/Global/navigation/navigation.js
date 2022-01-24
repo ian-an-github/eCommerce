@@ -46,6 +46,7 @@ describe('Find the logo on mobile and tablet for 2 different sites', () =>
             .should('have.attr', 'src')
             .and('include', 'logo');
           });
+          cy.percySnapshot();
         });
       });
     });

@@ -68,8 +68,13 @@ context.only("Check Fonts", function() {
                     .should('have.css', 'font-weight')
                     .and('eq', '700')
                     })
-              }
-            })
+
+                }
+        cy.percySnapshot(url);
+            //cy.percySnapshot('Homepage test');
+            //cy.percySnapshot('Homepage responsive test', { widths: [768, 992, 1200] });
+
+        })
         })
     })
 
