@@ -30,8 +30,7 @@ describe('Find the logo on mobile and tablet for 2 different sites', () =>
               //uses the URL alias above
               cy.visit(url);
               const headermiss = (Cypress.$('.navbar').length > 0)
-              //console.log(url)
-              //console.log(size)
+              //console.log(url , size)
 
               //use the size alias above
               cy.viewport(size);
@@ -42,7 +41,7 @@ describe('Find the logo on mobile and tablet for 2 different sites', () =>
  
 
               //test from a Cypress example for using a for each loop (but not a nested one)
-              cy.percySnapshot(url,size);
+              cy.percySnapshot(url + "_" +  size);
           });
         });
         });
