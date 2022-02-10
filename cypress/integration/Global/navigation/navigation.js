@@ -11,35 +11,38 @@ context("Login", () => {
 //Set an array of sizes
 const sizes = ['iphone-6', 'ipad-2'];
 
-it('Navigation', function() {
+it('Navigation', function() 
+{
   //Set an array of URL's
 const urls = this.pages.page;
 describe('Find the logo on mobile and tablet for 2 different sites', () => 
-{
-  //for each URL do the thing in here
-  urls.forEach(function(url)  
-    {
-    //This gives you some feedback in the Cypress side bar console on what URL you're at
-      describe('url: ${url}', () => 
+  {
+    //for each URL do the thing in here
+    urls.forEach(function(url)  
       {
-      //The nested loop meaning that for each URL you go to we will also go into another loop and use each size as well.
-      sizes.forEach(size => 
+        describe('url: ${url}', () => 
         {
-          it('Should display logo on ${url}', () => 
+        //The nested loop meaning that for each URL you go to we will also go into another loop and use each size as well.
+        sizes.forEach(size =>
           {
-            //uses the URL alias above
-            cy.visit(url);
-            //use the size alias above
-            cy.viewport(size);
-            //test from a Cypress example for using a for each loop (but not a nested one)
-            cy.get('#logo img', { timeout: 30000 })
-            .should('have.attr', 'src')
-            .and('include', 'logo');           
-            cy.percySnapshot(url);
+            it('Should display logo on ${url}', () => 
+            {
+              //uses the URL alias above
+              cy.visit(url,{failOnStatusCode:false});
+              console.log(url)
+              console.log(size)
+
+              //use the size alias above
+              cy.viewport(size);
+              
+              //test from a Cypress example for using a for each loop (but not a nested one)
+              cy.get('[alt="Zeal logo"]', { timeout: 30000 })
+              .should('have.attr', 'src')
+              cy.percySnapshot(url);
           });
         });
+        });
       });
-    });
   });
 });
   /*

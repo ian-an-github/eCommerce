@@ -1,4 +1,4 @@
-context.only("Check Fonts", function() {
+context("Check Fonts", function() {
     beforeEach(() => {
         cy.setsession()
 
