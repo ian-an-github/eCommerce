@@ -25,7 +25,7 @@ describe('Find the logo on mobile and tablet for 2 different sites', () =>
         //The nested loop meaning that for each URL you go to we will also go into another loop and use each size as well.
         sizes.forEach(function(size)
           {
-            it('Should display logo on ${url}', () => 
+            describe('Should display logo on ${url}', () => 
             {
               //uses the URL alias above
               cy.visit(url);
