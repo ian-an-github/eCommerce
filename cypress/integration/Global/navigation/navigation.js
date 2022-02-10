@@ -23,21 +23,25 @@ describe('Find the logo on mobile and tablet for 2 different sites', () =>
         describe('url: ${url}', () => 
         {
         //The nested loop meaning that for each URL you go to we will also go into another loop and use each size as well.
-        sizes.forEach(size =>
+        sizes.forEach(function(size)
           {
             it('Should display logo on ${url}', () => 
             {
               //uses the URL alias above
-              cy.visit(url,{failOnStatusCode:false});
-              console.log(url)
-              console.log(size)
+              cy.visit(url);
+              const headermiss = (Cypress.$('.navbar').length > 0)
+              //console.log(url)
+              //console.log(size)
 
               //use the size alias above
               cy.viewport(size);
               
-              //test from a Cypress example for using a for each loop (but not a nested one)
-              cy.get('[alt="Zeal logo"]', { timeout: 30000 })
+              cy.get('.cursor-pointer')  // get the containing toolbar
+              .find('img[alt*="Zeal"]')  
               .should('have.attr', 'src')
+ 
+
+              //test from a Cypress example for using a for each loop (but not a nested one)
               cy.percySnapshot(url);
           });
         });
@@ -45,6 +49,7 @@ describe('Find the logo on mobile and tablet for 2 different sites', () =>
       });
   });
 });
+//});
   /*
   describe('Verify "Login" is visible', function() {
     it('finds the Login link in the header', function() {
