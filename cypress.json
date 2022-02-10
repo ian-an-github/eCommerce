@@ -2,5 +2,6 @@
     "baseUrl": "https://dev-zeal.vercel.app",
     "experimentalSessionSupport": true,
     "defaultCommandTimeout": 10000,
-    "pageLoadTimeout": 60000
+    "pageLoadTimeout": 60000,
+    "projectId": "2f75nk"
 }

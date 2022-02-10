@@ -6,3 +6,9 @@ Update package.json
     - to add percy configs
 Set Environment 
     - $env:PERCY_TOKEN = "a23a208054ab20c23f57f26a7430b3f6fa3c3c24d2ed5708b39afbf285834266"
+To RUN percy 
+    - npx percy exec -- cypress run
+TO RUN Cypress only
+    - npm run cypress:open
+TO RUN CYPRESS with Dashboard
+    - npx cypress run --record --key 07654803-b572-49bd-9625-2be6eacdae25    

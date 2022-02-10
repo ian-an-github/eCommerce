@@ -1,15 +1,18 @@
 context("Login", () => {
+  beforeEach(() => {
+    cy.setsession()
 
-  beforeEach(function() {
-      cy.fixture('pages').then(function(pages)
-      {
-          this.pages=pages ;
-      })  
+    cy.fixture('pages').then(function(pages)
+    {
+        this.pages=pages ;
+    })          
   })
 
 //Set an array of sizes
 const sizes = ['iphone-6', 'ipad-2'];
-//Set an array of URL's
+
+it('Navigation', function() {
+  //Set an array of URL's
 const urls = this.pages.page;
 describe('Find the logo on mobile and tablet for 2 different sites', () => 
 {
@@ -29,7 +32,7 @@ describe('Find the logo on mobile and tablet for 2 different sites', () =>
             //use the size alias above
             cy.viewport(size);
             //test from a Cypress example for using a for each loop (but not a nested one)
-            cy.get('#logo img')
+            cy.get('#logo img', { timeout: 30000 })
             .should('have.attr', 'src')
             .and('include', 'logo');           
             cy.percySnapshot(url);
@@ -38,6 +41,7 @@ describe('Find the logo on mobile and tablet for 2 different sites', () =>
       });
     });
   });
+});
   /*
   describe('Verify "Login" is visible', function() {
     it('finds the Login link in the header', function() {
