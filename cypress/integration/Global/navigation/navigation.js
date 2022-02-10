@@ -1,32 +1,28 @@
 context("Login", () => {
 
   beforeEach(function() {
-      cy.visit('https://identity-dev.wuxiaworld.com/Account/Login')
-
-      cy.fixture('logindata').then(function(dataJson)
+      cy.fixture('pages').then(function(pages)
       {
-          this.dataJson=dataJson;
-          testUser = this.dataJson.regularUser
-          cy.wrap(testUser)
-      })
+          this.pages=pages ;
+      })  
   })
 
 //Set an array of sizes
 const sizes = ['iphone-6', 'ipad-2'];
 //Set an array of URL's
-const urls = ['https://docs.cypress.io', 'https://www.cypress.io'];
+const urls = this.pages.page;
 describe('Find the logo on mobile and tablet for 2 different sites', () => 
 {
   //for each URL do the thing in here
-  urls.forEach(url => 
+  urls.forEach(function(url)  
     {
     //This gives you some feedback in the Cypress side bar console on what URL you're at
-      describe(`url: ${url}`, () => 
+      describe('url: ${url}', () => 
       {
       //The nested loop meaning that for each URL you go to we will also go into another loop and use each size as well.
       sizes.forEach(size => 
         {
-          it(`Should display logo on ${url}`, () => 
+          it('Should display logo on ${url}', () => 
           {
             //uses the URL alias above
             cy.visit(url);
@@ -35,8 +31,8 @@ describe('Find the logo on mobile and tablet for 2 different sites', () =>
             //test from a Cypress example for using a for each loop (but not a nested one)
             cy.get('#logo img')
             .should('have.attr', 'src')
-            .and('include', 'logo');
-            cy.percySnapshot();
+            .and('include', 'logo');           
+            cy.percySnapshot(url);
           });
         });
       });
