@@ -42,7 +42,7 @@ describe('Find the logo on mobile and tablet for 2 different sites', () =>
  
 
               //test from a Cypress example for using a for each loop (but not a nested one)
-              cy.percySnapshot(url);
+              cy.percySnapshot(url,size);
           });
         });
         });
