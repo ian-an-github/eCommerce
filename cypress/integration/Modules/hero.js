@@ -19,15 +19,16 @@ context.only("Check Fonts", function() {
             if (!headermiss) 
             {
                 cy.get('.heading-1').each(($el, index, $header) => {
-                    cy.get('.heading-1')   
+                    cy.get('.heading-1', { timeout: 30000 })   
                     .should('have.css', 'font-size')
                     .and('eq', '48px')
         
-                    cy.get('.heading-1')   
+                    cy.get('.heading-1', { timeout: 30000 })   
                     .should('have.css', 'font-weight')
                     .and('eq', '700')
                     })
-              }
+                    cy.percySnapshot(url);
+              }              
             })
         })
     
@@ -41,11 +42,11 @@ context.only("Check Fonts", function() {
 
             if (!headermiss) {
                 cy.get('.heading-2').each(($el, index, $header) => {
-                    cy.get('.heading-2')   
+                    cy.get('.heading-2', { timeout: 30000 })   
                     .should('have.css', 'font-size')
                     .and('eq', '48px')
         
-                    cy.get('.heading-2')   
+                    cy.get('.heading-2', { timeout: 30000 })   
                     .should('have.css', 'font-weight')
                     .and('eq', '700')
                     })
@@ -60,20 +61,16 @@ context.only("Check Fonts", function() {
         cy.visit(url,{failOnStatusCode:false})
             if (cy.get(".heading-3").length > 0) {
                 cy.get('.heading-3').each(($el, index, $header) => {
-                    cy.get('.heading-3')   
+                    cy.get('.heading-3', { timeout: 30000 })   
                     .should('have.css', 'font-size')
                     .and('eq', '48px')
         
-                    cy.get('.heading-3')   
+                    cy.get('.heading-3', { timeout: 30000 })   
                     .should('have.css', 'font-weight')
                     .and('eq', '700')
                     })
 
                 }
-        cy.percySnapshot(url);
-            //cy.percySnapshot('Homepage test');
-            //cy.percySnapshot('Homepage responsive test', { widths: [768, 992, 1200] });
-
         })
         })
     })
