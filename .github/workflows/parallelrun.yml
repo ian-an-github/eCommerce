@@ -1,32 +1,16 @@
-version: 2.1
-orbs:
-  cypress: cypress-io/cypress@1
-workflows:
+name: Node.js CI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
   build:
-    jobs:
-      - cypress/install
-      - cypress/run:
-          name: Chrome
-          requires:
-            - cypress/install
-          executor: cypress/browsers-chrome73-ff68
-          record: true
-          start: npx cypress run 
-          key: 07654803-b572-49bd-9625-2be6eacdae25
-          parallel: true
-          parallelism: 4
-          group: chrome
-          browser: chrome
-      - cypress/run:
-          name: Firefox
-          requires:
-            - cypress/install
-          executor: cypress/browsers-chrome73-ff68
-          record: true
-          start: npx cypress run 
-          key: 07654803-b572-49bd-9625-2be6eacdae25
-          parallel: true
-          parallelism: 2
-          group: firefox
-          browser: firefox
-          # spec: 'cypress/integration/app.spec.js,cypress/integration/login.spec.js,cypress/integration/about.spec.js'
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: cypress-io/cypress@1
+    - run: npx cypress run --executor cypress/browsers-chrome73-ff68 --record --key 07654803-b572-49bd-9625-2be6eacdae25 --parallel --parallelisim 4 --group Chrome --browser chrome
+    - run: npx cypress run --executor cypress/browsers-chrome73-ff68 --record --key 07654803-b572-49bd-9625-2be6eacdae25 --parallel --parallelisim 4 --group Firefox --browser firefox
