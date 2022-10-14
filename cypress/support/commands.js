@@ -28,6 +28,6 @@ import '@percy/cypress'
 
 Cypress.Commands.add('setsession', () => {
     cy.session("login", () => {
-        cy.setCookie("_vercel_jwt","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MzkwNDA0ODMsImF1ZCI6ImRldi16ZWFsLnZlcmNlbC5hcHAiLCJoYXNoIjoiMzkwM2I5NzUyODM3ZDY0ZDRkM2YzNWFkYzM5NmNmYjE3OTcwYTlhZmM3YjA5MWVhM2Y5OTc3Zjc0N2EzMzk1NSIsInN1YiI6InBhc3N3b3JkLXByb3RlY3Rpb24ifQ.a6ebCGj7_WFeSB3zfpjuEt1eyo4eFFRsp57XhbdlB6s")
+        cy.setCookie("_vercel_jwt","")
         })
 })
